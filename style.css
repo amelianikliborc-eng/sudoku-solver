@@ -1,1 +1,114 @@
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+
+    background: #f2f2f2;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+#sudoku-grid {
+    display: grid;
+
+    grid-template-columns: repeat(9, 45px);
+    grid-template-rows: repeat(9, 45px);
+
+    margin: 25px auto;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+
+    text-align: center;
+
+    font-size: 20px;
+
+    border: 1px solid #aaa;
+
+    outline: none;
+}
+
+.cell:focus {
+    background: #e5efff;
+}
+
+/* Grubsze linie pionowe */
+
+.cell:nth-child(3n) {
+    border-right: 2px solid black;
+}
+
+/* Lewa krawędź */
+
+.cell:nth-child(9n + 1) {
+    border-left: 2px solid black;
+}
+
+/* Górna krawędź */
+
+.cell:nth-child(-n + 9) {
+    border-top: 2px solid black;
+}
+
+/* Dolna krawędź */
+
+.cell:nth-child(n + 73) {
+    border-bottom: 2px solid black;
+}
+
+/* Linie poziome między blokami 3x3 */
+
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) {
+    border-bottom: 2px solid black;
+}
+
+.buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+#solve-button {
+    background: #222;
+    color: white;
+}
+
+#clear-button {
+    background: #ddd;
+}
+
+#message {
+    min-height: 20px;
+}
